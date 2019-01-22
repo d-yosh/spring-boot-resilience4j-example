@@ -1,0 +1,23 @@
+resilience4j:
+    circuitbreaker:
+        backends:
+            circuitA:
+                ring-buffer-size-in-closed-state: 5
+                ring-buffer-size-in-half-open-state: 5
+                wait-duration-in-open-state : 5000
+                failure-rate-threshold: 50
+            circuitB:
+                ring-buffer-size-in-closed-state: 5
+                ring-buffer-size-in-half-open-state: 5
+                wait-duration-in-open-state : 5000
+                failure-rate-threshold: 50
+    ratelimiter:
+        limiters:
+            limiterA:
+                limit-for-period: 1
+                limit-refresh-period-in-millis: 5000
+                timeout-in-millis: 1000
+            limiterB:
+                limit-for-period: 1
+                limit-refresh-period-in-millis: 5000
+                timeout-in-millis: 1000
